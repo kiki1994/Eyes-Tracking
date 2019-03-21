@@ -1,0 +1,1 @@
+(accu = 10.360 iter = 4400  epoch = 5)

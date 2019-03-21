@@ -1,0 +1,32 @@
+import torch
+
+cc = torch.rand(128, 1, 448, 448)
+
+conv1 = torch.nn.Conv2d(1, 64, 5, 2, 2)
+conv11 = torch.nn.Conv2d(64, 64, 5, 2, 2)
+conv2 = torch.nn.Conv2d(64, 96, 3, 2, 2)   #[1, 3, 15, 60]
+conv3 = torch.nn.Conv2d(96, 128, 3, 2, 2)
+conv4 = torch.nn.Conv2d(128, 256, 3, 1, 1)
+conv5 = torch.nn.Conv2d(256, 384, 3, 1, 1)
+conv6 = torch.nn.Conv2d(384, 256, 3, 1, 1)
+conv7 = torch.nn.Conv2d(256, 256, 3, 1, 0)
+pool = torch.nn.MaxPool2d(3, 2)
+pool2 = torch.nn.MaxPool2d(2, 2)
+result1 = conv11(conv1(cc))                      #torch.Size([1, 3, 30, 120])
+# result1_p = pool(result1)
+result2 = conv2(result1)                 #torch.Size([1, 3, 16, 61])
+result3 = conv3(result2)                 #torch.Size([1, 128, 9, 32])
+
+result4 = conv4(result3)                 #torch.Size([1, 3, 12, 32])
+# result4_p = pool2(result4)
+result5 = pool(conv5(result4))                 #torch.Size([1, 3, 12, 32])
+result6 = pool(conv6(result5))
+result7 = pool(conv7(result6))
+print(result1.shape)
+# print(result1_p.shape)
+print(result2.shape)
+print(result3.shape)
+print(result4.shape)
+print(result5.shape)
+print(result6.shape)
+print(result7.shape)

@@ -1,0 +1,19 @@
+twoeyes_test1:双眼在fc层cat84个点
+twoeyes_test2:将84写入第三个卷积后
+twoeyes_test3:在上一个的基础之上，输出每个epoch的最小值，但是不是我想要的，所以把文件都删了
+twoeyes_test4:在2的基础之上记录每23个iteration的平均accu，和左右眼的accu，最后做画图用，证明其收敛过程
+twoeyes_test5:更改了网络结构，加入了it is written的思想
+twoeyes_test6:在4的基础上先试用eyes_located和headpose，暂时不使用face loctions
+twoeyes_test7:只使用headpose，加在第六层卷积输出的地方。
+twoeyes_test8:只使用eyes_loction，加在第三层的输出
+twoeyes_test9: eye_loc和headpose下移到第六层卷积
+twoeyes_test10：全部location下移到第六层卷积
+twoeyes_test11：没有任何的location
+twoeyes_test12：eye_loc和headpose分别进入卷积
+twoeyes_test13：更换网络为res-net
+twoeyes_test14: 用MSEloss作为loss函数，在12的基础上
+twoeyes_test15：欧几里得距作为loss，在12的基础上
+twoeyes_test16: 设定好权重的欧几里得距离作为loss，在12的基础上
+twoeyes_test17: 带权重的欧几里得距离，点对点的js，没有归一化。
+twoeyes_test18：arccos作为loss，在12的基础上
+twoeyes_test19：能不能把label做softmax，然后预测值回归到它上
